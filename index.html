@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Comercio Electrónico</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Incluyendo DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+</head>
+<body>
+
+<header>
+    <div class="header-top">
+        <div class="logo-search">
+            <img src="https://th.bing.com/th/id/OIP.KZQjRtzYNJElnqC1xbxFgwHaHD?rs=1&pid=ImgDetMain" alt="Logo">
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar productos, marcas y más...">
+                <button><img src="search-icon.png" alt="Buscar"></button>
+            </div>
+        </div>
+        <div>
+            <a href="#">Iniciar Sesión</a> | <a href="#">Mis Compras</a>
+        </div>
+    </div>
+    <div class="header-bottom">
+        <nav>
+            <ul>
+                <li>
+                    <a href="#">Categorías</a>
+                    <div class="dropdown-content">
+                        <a href="#">Hogar</a>
+                        <a href="#">Tecnología</a>
+                        <a href="#">Electrodomésticos</a>
+                    </div>
+                </li>
+                <li><a href="#">Ofertas</a></li>
+                <li><a href="#">Historial</a></li>
+                <li><a href="#">Ayuda</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="main-banner">
+    <h1>¡Haz tu primera compra y obtén un regalo!</h1>
+    <div>
+        <p>Te regalamos <strong>$200</strong> en compras mínimas de <strong>$800</strong></p>
+        <img src="https://i.pinimg.com/originals/ad/74/95/ad7495a6baa4ae531414f86687faf769.jpg" alt="Regalo">
+    </div>
+</div>
+
+<section class="offers">
+    <div class="offer-item">
+        <img src="https://th.bing.com/th/id/R.13bf7f137fabf4ae4f3032b4407f9a15?rik=dB5NP1mUrZ8BUA&riu=http%3a%2f%2fservigrup.es%2fwp-content%2fuploads%2f2018%2f03%2f6017.jpg&ehk=ramRfmWNn9dswDBF8DBvzwkZU7iMdQ84oAUQz%2fMhzsQ%3d&risl=&pid=ImgRaw&r=0" alt="Ventilador">
+        <h2>Ventilador 3 velocidades</h2>
+        <p class="old-price">$1,569</p>
+        <p class="price">$679 - 56% Descuento</p>
+        <p>12 meses en $57</p>
+    </div>
+
+    <div class="offer-item">
+        <img src="https://i5.walmartimages.com/asr/b914904e-2ef5-4817-b365-07c9e2866ce9_1.cabf397094aad1d770dfdf8685d67b82.jpeg" alt="Ventilador">
+        <h2>Laptop 15 Puulgadas</h2>
+        <p class="old-price">$17,776</p>
+        <p class="price">$15,999 - 10% Descuento</p>
+        <p>12 meses en $57</p>
+    </div>
+
+    <div class="offer-item">
+        <img src="https://images.philips.com/is/image/PhilipsConsumer/EP4341_50-IMS-es_ES?$jpglarge$&wid=1250" alt="Ventilador">
+        <h2>Cafetera Automática</h2>
+        <p class="old-price">$3,284</p>
+        <p class="price">$2299 - 30% Descuento</p>
+        <p>12 meses en $57</p>
+    </div>
+
+    <div class="offer-item">
+        <img src="https://res.cloudinary.com/walmart-labs/image/upload/w_960,dpr_auto,f_auto,q_auto:best/mg/gm/3pp/asr/99f9276c-caaa-46ae-bc94-dca7f173cac5.2b52ace902ff70c2cd57c58d09d43092.jpeg?odnHeight=2000&odnWidth=2000&odnBg=ffffff" alt="Ventilador">
+        <h2>Televisor 42 pulgadas</h2>
+        <p class="old-price">$11,333</p>
+        <p class="price">$8,500 - 25% Descuento</p>
+        <p>12 meses en $57</p>
+    </div>
+
+</section>
+
+<!-- Tabla de productos -->
+<h2>Lista de Productos</h2>
+<table id="productosTable" class="display">
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Categoría</th>
+            <th>Descuento</th>
+            <th>Disponibilidad</th>
+            <th>Valoración</th>
+            <th>Envío Gratis</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Ventilador 3 velocidades</td>
+            <td>$679</td>
+            <td>Electrodomésticos</td>
+            <td>56%</td>
+            <td>En stock</td>
+            <td>4.5/5</td>
+            <td>Sí</td>
+        </tr>
+        <tr>
+            <td>Televisor 42 pulgadas</td>
+            <td>$8,500</td>
+            <td>Electrónica</td>
+            <td>25%</td>
+            <td>En stock</td>
+            <td>4.7/5</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Laptop 15 pulgadas</td>
+            <td>$15,999</td>
+            <td>Computadoras</td>
+            <td>10%</td>
+            <td>Preventa</td>
+            <td>4.8/5</td>
+            <td>Sí</td>
+        </tr>
+        <tr>
+            <td>Cafetera Automática</td>
+            <td>$2,299</td>
+            <td>Hogar</td>
+            <td>30%</td>
+            <td>En stock</td>
+            <td>4.3/5</td>
+            <td>No</td>
+        </tr>
+    </tbody>
+</table>
+
+<footer class="footer">
+    <p>&copy; 2024 - Página de Comercio Electrónico</p>
+</footer>
+
+<!-- Incluyendo jQuery y DataTables -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="scripts.js"></script>
+
+</body>
+</html>
