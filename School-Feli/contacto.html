@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Tienda de Artículos Escolares</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilo del formulario de contacto */
+        .contacto {
+            display: flex;
+            flex-direction: column; /* Coloca los elementos en columna */
+            align-items: center; /* Centra los elementos horizontalmente */
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 600px; /* Ancho máximo */
+            background-color: #ffe6f0; /* Color de fondo para la sección de contacto */
+            border-radius: 10px; /* Bordes redondeados */
+        }
+
+        .contacto h3 {
+            text-align: center;
+        }
+
+        .contacto input,
+        .contacto textarea {
+            width: 100%; /* Ancho un poco menos del total */
+            max-width: 400px; /* Ancho máximo para los campos */
+            padding: 10px; /* Espacio interno */
+            margin: 10px 0; /* Margen superior e inferior */
+            border-radius: 5px; /* Bordes redondeados */
+            border: 1px solid #ccc; /* Bordes */
+        }
+
+        .contacto button {
+            background-color: #ffb6c1;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            width: 100%; /* Botón ocupa todo el ancho */
+            max-width: 400px; /* Ancho máximo para el botón */
+        }
+
+        .contacto button:hover {
+            background-color: #ff6f91; /* Cambio de color al pasar el ratón */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Contacto</h1>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="carrito.html">Carrito</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+</header>
+
+<!-- Sección de contacto -->
+<section class="contacto">
+    <h3>Contáctanos</h3>
+    <form id="contactoForm" onsubmit="enviarConsulta(event)">
+        <input type="text" id="nombre" placeholder="Tu Nombre" required>
+        <input type="email" id="correo" placeholder="Tu Correo Electrónico" required>
+        <textarea id="mensaje" placeholder="Tu Mensaje" rows="4" required></textarea>
+        <button type="submit">Enviar</button>
+    </form>
+</section>
+
+<!-- Pie de página -->
+<footer>
+    <p>&copy; 2024 Tienda Escolar. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+    function enviarConsulta(event) {
+        event.preventDefault(); // Evitar el envío del formulario por defecto
+        const nombre = document.getElementById('nombre').value;
+        const correo = document.getElementById('correo').value;
+        const mensaje = document.getElementById('mensaje').value;
+
+        // Mostrar mensaje de agradecimiento
+        alert(`Gracias, ${nombre}. Tu mensaje ha sido enviado.`);
+        
+        // Limpiar el formulario
+        document.getElementById('contactoForm').reset();
+    }
+</script>
+
+</body>
+</html>

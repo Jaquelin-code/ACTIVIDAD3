@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+
+<header>
+    <h1>Carrito de Compras</h1>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="carrito.html">Carrito</a>
+        <a href="#">Contacto</a>
+    </nav>
+</header>
+
+<!-- Tabla del carrito -->
+<table class="carrito-tabla" id="tablaCarrito">
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Total</th>
+            <th>Acciones</th> <!-- Columna de acciones -->
+        </tr>
+    </thead>
+    <tbody id="tbodyCarrito">
+        <!-- Aquí se llenarán los productos del carrito -->
+    </tbody>
+</table>
+
+<!-- Total del carrito -->
+<div id="totalCarrito">
+    <h3>Total: $<span id="totalPrecio">0.00</span></h3>
+</div>
+
+<style>
+
+    #totalCarrito{
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    #totalCarrito h3 {
+        display: inline-block;
+        padding: 10px;
+        background-color: #f0f0f0;
+        border-radius: 5px;
+        font-weight: bold;
+        margin: 0;
+    }
+    
+</style>
+<!-- Formulario de envío -->
+<div class="form-envio">
+    <h2>Información de Envío</h2>
+    <input type="text" placeholder="Nombre" id="nombre" required>
+    <input type="text" placeholder="Dirección" id="direccion" required>
+    <input type="text" placeholder="Teléfono" id="telefono" required>
+    <button onclick="enviarPedido()">Enviar Pedido</button>
+</div>
+
+<!-- Pie de página -->
+<footer>
+    <p>&copy; 2024 Tienda Escolar. Todos los derechos reservados.</p>
+</footer>
+
+<!-- Script para manejar el carrito -->
+<script>
+    function cargarCarrito() {
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        const tbodyCarrito = document.getElementById('tbodyCarrito');
+        const totalPrecio = document.getElementById('totalPrecio');
+
+        tbodyCarrito.innerHTML = ''; // Limpiar tabla
+        let total = 0;
+
+        carrito.forEach((item, index) => {
+            const tr = document.createElement('tr');
+            const totalItem = item.precio * item.cantidad;
+            total += totalItem;
+
+            tr.innerHTML = `
+                <td>${item.producto}</td>
+                <td>$${item.precio.toFixed(2)}</td>
+                <td>${item.cantidad}</td>
+                <td>$${totalItem.toFixed(2)}</td>
+                <td><button class="btn-eliminar" onclick="eliminarDelCarrito(${index})">Eliminar</button></td>
+            `;
+            tbodyCarrito.appendChild(tr);
+        });
+
+        totalPrecio.textContent = total.toFixed(2);
+    }
+
+    function eliminarDelCarrito(index) {
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        carrito.splice(index, 1); // Eliminar el elemento del carrito
+        localStorage.setItem('carrito', JSON.stringify(carrito)); // Guardar de nuevo en localStorage
+        cargarCarrito(); // Actualizar tabla
+    }
+
+    function enviarPedido() {
+        const nombre = document.getElementById('nombre').value;
+        const direccion = document.getElementById('direccion').value;
+        const telefono = document.getElementById('telefono').value;
+
+        if (nombre && direccion && telefono) {
+            alert(`Pedido enviado:\nNombre: ${nombre}\nDirección: ${direccion}\nTeléfono: ${telefono}`);
+            localStorage.removeItem('carrito'); // Limpiar carrito después de enviar
+            cargarCarrito(); // Actualizar tabla
+        } else {
+            alert('Por favor, complete todos los campos.');
+        }
+    }
+
+    // Cargar el carrito al inicio
+    window.onload = cargarCarrito;
+</script>
+
+</body>
+</html>
