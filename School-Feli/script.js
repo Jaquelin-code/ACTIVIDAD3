@@ -38,3 +38,20 @@ function mostrarCarrito() {
 if (document.getElementById('resumenCarrito')) {
     mostrarCarrito();
 }
+
+function enviarMensaje() {
+    const nombre = document.getElementById('nombre').value;
+    const email = document.getElementById('email').value;
+    const mensaje = document.getElementById('mensaje').value;
+
+    if (nombre && email && mensaje) {
+        alert(`Mensaje enviado:\nNombre: ${nombre}\nEmail: ${email}\nMensaje: ${mensaje}`);
+        // Aquí podrías agregar la lógica para enviar el mensaje a tu servidor
+        document.getElementById('nombre').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('mensaje').value = '';
+    } else {
+        alert('Por favor, complete todos los campos.');
+    }
+}
+

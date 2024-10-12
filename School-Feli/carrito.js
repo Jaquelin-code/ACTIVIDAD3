@@ -1,43 +1,49 @@
-// Leer el carrito del localStorage
 function cargarCarrito() {
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    const tbodyCarrito = document.getElementById('tbodyCarrito');
+    const totalPrecio = document.getElementById('totalPrecio');
 
-    const carritoTabla = document.getElementById('carrito-tabla-body');
-    const totalElement = document.getElementById('precio-total');
+    tbodyCarrito.innerHTML = ''; 
     let total = 0;
 
-    // Limpiar la tabla antes de agregar nuevos elementos
-    carritoTabla.innerHTML = '';
-
-    // Recorrer los productos del carrito y agregarlos a la tabla
     carrito.forEach((item, index) => {
-        const fila = document.createElement('tr');
+        const tr = document.createElement('tr');
+        const totalItem = item.precio * item.cantidad;
+        total += totalItem;
 
-        // Insertar los datos del producto en la tabla
-        fila.innerHTML = `
+        tr.innerHTML = `
             <td>${item.producto}</td>
             <td>$${item.precio.toFixed(2)}</td>
-            <td>${item.cantidad}</td>
-            <td>$${(item.precio * item.cantidad).toFixed(2)}</td>
-            <td><button onclick="eliminarDelCarrito(${index})">Eliminar</button></td>
+            <td><input type="number" value="${item.cantidad}" min="1" class="cantidad-input" data-index="${index}"></td>
+            <td>$${totalItem.toFixed(2)}</td>
+            <td><button class="btn-eliminar" onclick="eliminarDelCarrito(${index})">Eliminar</button></td>
         `;
-        carritoTabla.appendChild(fila);
-
-        // Calcular el total
-        total += item.precio * item.cantidad;
+        tbodyCarrito.appendChild(tr);
     });
 
-    // Mostrar el precio total
-    totalElement.textContent = total.toFixed(2);
+    totalPrecio.textContent = total.toFixed(2);
 }
 
-// Función para eliminar un producto del carrito
-function eliminarDelCarrito(indice) {
+function eliminarDelCarrito(index) {
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-    carrito.splice(indice, 1); // Eliminar el producto según el índice
-    localStorage.setItem('carrito', JSON.stringify(carrito));
-    cargarCarrito(); // Recargar el carrito
+    carrito.splice(index, 1); 
+    localStorage.setItem('carrito', JSON.stringify(carrito)); // Guardar de nuevo en localStorage
+    cargarCarrito(); // Actualizar tabla
 }
 
-// Cargar el carrito cuando se cargue la página
+function enviarPedido() {
+    const nombre = document.getElementById('nombre').value;
+    const direccion = document.getElementById('direccion').value;
+    const telefono = document.getElementById('telefono').value;
+
+    if (nombre && direccion && telefono) {
+        alert(`Pedido enviado:\nNombre: ${nombre}\nDirección: ${direccion}\nTeléfono: ${telefono}`);
+        localStorage.removeItem('carrito'); // Limpiar carrito después de enviar
+        cargarCarrito(); // Actualizar tabla
+    } else {
+        alert('Por favor, complete todos los campos.');
+    }
+}
+
+// Cargar el carrito al inicio
 window.onload = cargarCarrito;

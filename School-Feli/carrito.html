@@ -15,11 +15,10 @@
         <a href="index.html">Inicio</a>
         <a href="productos.html">Productos</a>
         <a href="carrito.html">Carrito</a>
-        <a href="#">Contacto</a>
+        <a href="contacto.html">Contacto</a>
     </nav>
 </header>
 
-<!-- Tabla del carrito -->
 <table class="carrito-tabla" id="tablaCarrito">
     <thead>
         <tr>
@@ -27,15 +26,13 @@
             <th>Precio</th>
             <th>Cantidad</th>
             <th>Total</th>
-            <th>Acciones</th> <!-- Columna de acciones -->
+            <th>Acciones</th> 
         </tr>
     </thead>
     <tbody id="tbodyCarrito">
-        <!-- Aquí se llenarán los productos del carrito -->
     </tbody>
 </table>
 
-<!-- Total del carrito -->
 <div id="totalCarrito">
     <h3>Total: $<span id="totalPrecio">0.00</span></h3>
 </div>
@@ -57,7 +54,7 @@
     }
     
 </style>
-<!-- Formulario de envío -->
+
 <div class="form-envio">
     <h2>Información de Envío</h2>
     <input type="text" placeholder="Nombre" id="nombre" required>
@@ -66,19 +63,17 @@
     <button onclick="enviarPedido()">Enviar Pedido</button>
 </div>
 
-<!-- Pie de página -->
 <footer>
     <p>&copy; 2024 Tienda Escolar. Todos los derechos reservados.</p>
 </footer>
 
-<!-- Script para manejar el carrito -->
 <script>
     function cargarCarrito() {
         let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
         const tbodyCarrito = document.getElementById('tbodyCarrito');
         const totalPrecio = document.getElementById('totalPrecio');
 
-        tbodyCarrito.innerHTML = ''; // Limpiar tabla
+        tbodyCarrito.innerHTML = ''; 
         let total = 0;
 
         carrito.forEach((item, index) => {
@@ -101,9 +96,9 @@
 
     function eliminarDelCarrito(index) {
         let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-        carrito.splice(index, 1); // Eliminar el elemento del carrito
-        localStorage.setItem('carrito', JSON.stringify(carrito)); // Guardar de nuevo en localStorage
-        cargarCarrito(); // Actualizar tabla
+        carrito.splice(index, 1); 
+        localStorage.setItem('carrito', JSON.stringify(carrito)); 
+        cargarCarrito(); 
     }
 
     function enviarPedido() {
@@ -113,14 +108,13 @@
 
         if (nombre && direccion && telefono) {
             alert(`Pedido enviado:\nNombre: ${nombre}\nDirección: ${direccion}\nTeléfono: ${telefono}`);
-            localStorage.removeItem('carrito'); // Limpiar carrito después de enviar
-            cargarCarrito(); // Actualizar tabla
+            localStorage.removeItem('carrito'); 
+            cargarCarrito(); 
         } else {
             alert('Por favor, complete todos los campos.');
         }
     }
 
-    // Cargar el carrito al inicio
     window.onload = cargarCarrito;
 </script>
 
