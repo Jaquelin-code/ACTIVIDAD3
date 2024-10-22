@@ -6,16 +6,16 @@
     <title>Contacto - Tienda de Artículos Escolares</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Estilo del formulario de contacto */
+        
         .contacto {
             display: flex;
-            flex-direction: column; /* Coloca los elementos en columna */
-            align-items: center; /* Centra los elementos horizontalmente */
+            flex-direction: column;
+            align-items: center; 
             margin: 20px auto;
             padding: 20px;
-            max-width: 600px; /* Ancho máximo */
-            background-color: #ffe6f0; /* Color de fondo para la sección de contacto */
-            border-radius: 10px; /* Bordes redondeados */
+            max-width: 600px; 
+            background-color: #ffe6f0; 
+            border-radius: 10px; 
         }
 
         .contacto h3 {
@@ -24,12 +24,12 @@
 
         .contacto input,
         .contacto textarea {
-            width: 100%; /* Ancho un poco menos del total */
-            max-width: 400px; /* Ancho máximo para los campos */
-            padding: 10px; /* Espacio interno */
-            margin: 10px 0; /* Margen superior e inferior */
-            border-radius: 5px; /* Bordes redondeados */
-            border: 1px solid #ccc; /* Bordes */
+            width: 100%; 
+            max-width: 400px; 
+            padding: 10px; 
+            margin: 10px 0;
+            border-radius: 5px; 
+            border: 1px solid #ccc; 
         }
 
         .contacto button {
@@ -39,12 +39,12 @@
             border-radius: 5px;
             color: white;
             cursor: pointer;
-            width: 100%; /* Botón ocupa todo el ancho */
-            max-width: 400px; /* Ancho máximo para el botón */
+            width: 100%; 
+            max-width: 400px; 
         }
 
         .contacto button:hover {
-            background-color: #ff6f91; /* Cambio de color al pasar el ratón */
+            background-color: #ff6f91; 
         }
     </style>
 </head>
@@ -60,7 +60,7 @@
     </nav>
 </header>
 
-<!-- Sección de contacto -->
+
 <section class="contacto">
     <h3>Contáctanos</h3>
     <form id="contactoForm" onsubmit="enviarConsulta(event)">
@@ -71,22 +71,22 @@
     </form>
 </section>
 
-<!-- Pie de página -->
+
 <footer>
     <p>&copy; 2024 Tienda Escolar. Todos los derechos reservados.</p>
 </footer>
 
 <script>
     function enviarConsulta(event) {
-        event.preventDefault(); // Evitar el envío del formulario por defecto
+        event.preventDefault(); 
         const nombre = document.getElementById('nombre').value;
         const correo = document.getElementById('correo').value;
         const mensaje = document.getElementById('mensaje').value;
 
-        // Mostrar mensaje de agradecimiento
+        
         alert(`Gracias, ${nombre}. Tu mensaje ha sido enviado.`);
         
-        // Limpiar el formulario
+        
         document.getElementById('contactoForm').reset();
     }
 </script>

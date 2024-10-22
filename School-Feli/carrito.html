@@ -60,7 +60,7 @@
     <input type="text" placeholder="Nombre" id="nombre" required>
     <input type="text" placeholder="Dirección" id="direccion" required>
     <input type="text" placeholder="Teléfono" id="telefono" required>
-    <button onclick="enviarPedido()">Enviar Pedido</button>
+    <button id="boton-enviar">Enviar Pedido</button>
 </div>
 
 <footer>
@@ -101,6 +101,23 @@
         cargarCarrito(); 
     }
 
+    function confirmarPedido() {
+        const eventoConfirmacion = new CustomEvent('confirmarPago', {
+            detail: {
+                mensaje: '¿Estas seguro que deseas confirmar el pedido?'
+            }
+        });
+
+        document.dispatchEvent(eventoConfirmacion);
+    }
+
+    document.addEventListener('confirmarPago', function(e) {
+        const confirmacion = confirm(e.detail.mensaje);
+        if (confirmacion) {
+            enviarPedido();
+        }
+    });
+
     function enviarPedido() {
         const nombre = document.getElementById('nombre').value;
         const direccion = document.getElementById('direccion').value;
@@ -115,7 +132,10 @@
         }
     }
 
-    window.onload = cargarCarrito;
+    window.onload = function() {
+        cargarCarrito();
+        document.getElementById('boton-enviar').addEventListener('click', confirmarPedido);
+    };
 </script>
 
 </body>

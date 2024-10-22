@@ -71,17 +71,22 @@
 <body>
 
 <header>
-    <h1>Lista de Productos</h1>
+    <h1 id="welcome">Bienvenido</h1>
     <nav>
         <a href="index.html">Inicio</a>
         <a href="productos.html">Productos</a>
         <a href="carrito.html">Carrito</a>
-        <a href="#">Contacto</a>
+        <a href="contacto.html">Contacto</a>
     </nav>
+
     <div class="buscador">
         <input type="text" placeholder="Buscar productos...">
     </div>
+
+    <button id="language-toggle">Cambiar Idioma</button>
+    <button id="darkModeToggle">Modo Oscuro</button>
 </header>
+
 <div id="notificacion" style="display: none; background-color: #e6e6fa; padding: 10px; margin: 20px 0; text-align: center;">
     Producto agregado al carrito.
 </div>
@@ -182,6 +187,9 @@
 
 <script src="productos.js"></script>
 <script src="cursor.js"></script>
+<script src="modoOScuro.js"></script>
+<script src="idioma.js"></script>
+
 <script>
     function agregarAlCarrito(producto, precio) {
         let carrito = JSON.parse(localStorage.getItem('carrito')) || [];

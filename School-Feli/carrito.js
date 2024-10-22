@@ -27,8 +27,8 @@ function cargarCarrito() {
 function eliminarDelCarrito(index) {
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     carrito.splice(index, 1); 
-    localStorage.setItem('carrito', JSON.stringify(carrito)); // Guardar de nuevo en localStorage
-    cargarCarrito(); // Actualizar tabla
+    localStorage.setItem('carrito', JSON.stringify(carrito)); 
+    cargarCarrito(); 
 }
 
 function enviarPedido() {
@@ -38,12 +38,12 @@ function enviarPedido() {
 
     if (nombre && direccion && telefono) {
         alert(`Pedido enviado:\nNombre: ${nombre}\nDirección: ${direccion}\nTeléfono: ${telefono}`);
-        localStorage.removeItem('carrito'); // Limpiar carrito después de enviar
-        cargarCarrito(); // Actualizar tabla
+        localStorage.removeItem('carrito'); 
+        cargarCarrito(); 
     } else {
         alert('Por favor, complete todos los campos.');
     }
 }
 
-// Cargar el carrito al inicio
+
 window.onload = cargarCarrito;

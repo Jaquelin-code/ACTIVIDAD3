@@ -1,6 +1,5 @@
 let carrito = [];
 
-// Función para agregar productos al carrito
 function agregarAlCarrito(nombreProducto, precio) {
     const producto = {
         nombre: nombreProducto,
@@ -8,13 +7,13 @@ function agregarAlCarrito(nombreProducto, precio) {
     };
     carrito.push(producto);
     alert(`${nombreProducto} ha sido añadido al carrito`);
-    mostrarCarrito(); // Actualiza la vista del carrito inmediatamente
+    mostrarCarrito(); 
 }
 
-// Función para mostrar los productos en el carrito
+
 function mostrarCarrito() {
     const resumenCarrito = document.getElementById('resumenCarrito');
-    resumenCarrito.innerHTML = ''; // Limpiar contenido previo
+    resumenCarrito.innerHTML = ''; 
 
     if (carrito.length === 0) {
         resumenCarrito.innerHTML = '<p>El carrito está vacío.</p>';
@@ -34,7 +33,7 @@ function mostrarCarrito() {
     resumenCarrito.appendChild(totalDiv);
 }
 
-// Llama a mostrarCarrito si hay un carrito existente al cargar la página
+
 if (document.getElementById('resumenCarrito')) {
     mostrarCarrito();
 }
@@ -46,7 +45,7 @@ function enviarMensaje() {
 
     if (nombre && email && mensaje) {
         alert(`Mensaje enviado:\nNombre: ${nombre}\nEmail: ${email}\nMensaje: ${mensaje}`);
-        // Aquí podrías agregar la lógica para enviar el mensaje a tu servidor
+        
         document.getElementById('nombre').value = '';
         document.getElementById('email').value = '';
         document.getElementById('mensaje').value = '';
