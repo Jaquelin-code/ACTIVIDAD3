@@ -7,57 +7,57 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         .productos-tabla {
-            width: 100%; 
-            border-collapse: collapse;  
-            margin: 20px 0; 
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
         }
 
         .productos-tabla th,
         .productos-tabla td {
-            border: 1px solid #ccc; 
-            padding: 10px; 
-            text-align: left; 
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
         }
 
         .productos-tabla th {
-            background-color: #f8f8f8; 
-            font-weight: bold; 
+            background-color: #f8f8f8;
+            font-weight: bold;
         }
 
         .productos-tabla tr:nth-child(even) {
-            background-color: #f9f9f9; 
+            background-color: #f9f9f9;
         }
-  
+
         .productos-container {
-            display: flex; 
-            justify-content: space-around; 
-            flex-wrap: wrap; 
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
         }
 
         .producto {
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            justify-content: center; 
-            text-align: center; 
-            background-color: #e6e6fa; 
-            padding: 20px; 
-            border-radius: 10px; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: #e6e6fa;
+            padding: 20px;
+            border-radius: 10px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            margin: 10px; 
+            margin: 10px;
         }
 
         .buscador {
             display: flex;
-            justify-content: center; 
-            margin: 10px 0; 
+            justify-content: center;
+            margin: 10px 0;
         }
 
         .buscador input {
-            width: 50%; 
-            padding: 10px; 
+            width: 50%;
+            padding: 10px;
             border-radius: 5px;
-            border: 1px solid #ccc; 
+            border: 1px solid #ccc;
         }
 
         .imagen-producto {
@@ -91,6 +91,13 @@
     Producto agregado al carrito.
 </div>
 
+<!-- Controles de administrador -->
+<div id="admin-controls" style="display: none;">
+    <h2>Administrar Productos</h2>
+    <button onclick="agregarProducto('Nuevo Producto', 50, 10, 'Categoría', 'Descripción')">Agregar Producto</button>
+    <button onclick="eliminarProducto(prompt('Nombre del producto a eliminar:'))">Eliminar Producto</button>
+</div>
+
 <section class="productos-destacados">
     <h2>Productos En Existencia</h2>
     <div class="productos-container">
@@ -99,36 +106,7 @@
             <p>Mochila Escolar - $100.00</p>
             <button class="custom-cursor-btn" onclick="agregarAlCarrito('Mochila Escolar', 100.00)">Agregar al Carrito</button>
         </div>
-        <div class="producto">
-            <img src="https://th.bing.com/th/id/OIP.WU8giSTBRQ1rFf9DczrkTAHaHa?rs=1&pid=ImgDetMain" alt="Cuaderno" class="imagen-producto">
-            <p>Cuaderno - $25.00</p>
-            <button class="custom-cursor-btn" onclick="agregarAlCarrito('Cuaderno', 25.00)">Agregar al Carrito</button>
-        </div>
-        <div class="producto">
-            <img src="https://th.bing.com/th/id/OIP.nHhA7p2rQCu6o25zj_RJPgHaHa?rs=1&pid=ImgDetMain" alt="Lapices" class="imagen-producto">
-            <p>Lapices - $20.00</p>
-            <button class="custom-cursor-btn" onclick="agregarAlCarrito('Lapices', 20.00)">Agregar al Carrito</button>
-        </div>
-        <div class="producto">
-            <img src="https://m.media-amazon.com/images/I/71JgpAs1ioL._AC_SY355_.jpg" alt="Estuchera" class="imagen-producto">
-            <p>Estuchera - $90.50</p>
-            <button class="custom-cursor-btn" onclick="agregarAlCarrito('Estuchera', 90.50)">Agregar al Carrito</button>
-        </div>
-        <div class="producto">
-            <img src="https://th.bing.com/th/id/OIP.WUcpOX8zIj60qFwu9CzRTwHaHa?w=191&h=191&c=7&r=0&o=5&pid=1.7" alt="Bolígrafo" class="imagen-producto">
-            <p>Bolígrafos - $70.80</p>
-            <button class="custom-cursor-btn" onclick="agregarAlCarrito('Bolígrafos', 70.80)">Agregar al Carrito</button>
-        </div>
-        <div class="producto">
-            <img src="https://th.bing.com/th/id/R.8fe6a475b51b6f9f8179dd434f33f1c4?rik=ejO6ZtofwbvQjw&pid=ImgRaw&r=0" alt="Borradores" class="imagen-producto">
-            <p>Borrador - $15.80</p>
-            <button class="custom-cursor-btn" onclick="agregarAlCarrito('Borrador', 15.80)">Agregar al Carrito</button>
-        </div>
-        <div class="producto">
-            <img src="https://th.bing.com/th/id/OIP.CLQABgYTRhT71m0cuDObuAAAAA?rs=1&pid=ImgDetMain" alt="Libro de Colorear" class="imagen-producto">
-            <p>Libro de Colorear - $80.90</p>
-            <button class="custom-cursor-btn" onclick="agregarAlCarrito('Libro de Colorear', 80.90)">Agregar al Carrito</button>
-        </div>
+        <!-- Más productos aquí -->
     </div>
 </section>
 
@@ -150,34 +128,7 @@
             <td>Accesorios</td>
             <td>Mochila para uso escolar, resistente y con múltiples compartimentos.</td>
         </tr>
-        <tr>
-            <td>Cuaderno</td>
-            <td>$25.00</td>
-            <td>25</td>
-            <td>Papelería</td>
-            <td>Cuaderno de hojas blancas, ideal para apuntes y dibujos.</td>
-        </tr>
-        <tr>
-            <td>Lápiz</td>
-            <td>$20.00</td>
-            <td>50</td>
-            <td>Útiles</td>
-            <td>Lápiz de grafito, perfecto para escribir y dibujar.</td>
-        </tr>
-        <tr>
-            <td>Bolígrafos</td>
-            <td>$40.00</td>
-            <td>20</td>
-            <td>Útiles</td>
-            <td>Bolígrafo varios colores</td>
-        </tr>
-        <tr>
-            <td>Borradores</td>
-            <td>$15.80</td>
-            <td>30</td>
-            <td>Útiles</td>
-            <td>Borradores de diferentes formas</td>
-        </tr>
+        <!-- Más productos aquí -->
     </tbody>
 </table>
 
@@ -211,6 +162,22 @@
             notificacion.style.display = 'none';
         }, 3000);
     }
+
+    function verificarAcceso() {
+        const usuario = JSON.parse(sessionStorage.getItem('usuario'));
+
+        if (!usuario || !usuario.isAuthenticated) {
+            alert("Acceso restringido. Por favor, inicia sesión.");
+            window.location.href = 'IniciarSesion.html';
+            return;
+        }
+        
+        if (usuario.role === 'administrador') {
+            document.getElementById("admin-controls").style.display = "block";
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', verificarAcceso);
 </script>
 
 </body>

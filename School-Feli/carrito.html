@@ -138,5 +138,20 @@
     };
 </script>
 
+<script>
+    function verificarAccesoCompra() {
+        const usuario = JSON.parse(sessionStorage.getItem('usuario'));
+
+        if (!usuario || !usuario.isAuthenticated) {
+            alert("Por favor, inicia sesión para hacer una compra.");
+            window.location.href = 'IniciarSesion.html';
+            return false;
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', verificarAccesoCompra);
+</script>
+
+
 </body>
 </html>

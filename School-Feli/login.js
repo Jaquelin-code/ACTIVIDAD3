@@ -1,20 +1,37 @@
+function crearUsuario(email, password, role = 'usuario') {
+    return {
+        email: email,
+        password: password,
+        role: role,
+        isAuthenticated: false
+    };
+}
+
 function procesarLogin() {
-    const email = document.getElementById('email').value; // Cambiado a 'email'
+    const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const captcha = document.getElementById('captcha').value;
 
-    // Validación CAPTCHA
     if (captcha !== '7') {
         alert("Respuesta incorrecta en el CAPTCHA. Intente de nuevo.");
         return;
     }
 
-    // Validación de credenciales (ejemplo básico)
-    if (email === "loki@gmail.com" && password === "contraseña") { // Cambiado el valor a validar
-        alert("Inicio de sesión exitoso");
-        window.location.href = "index.html"; // Redirige a la página principal
+    // Ejemplo de credenciales y roles
+    let usuario;
+    if (email === "admin@tienda.com" && password === "adminpass") {
+        usuario = crearUsuario(email, password, 'administrador');
+    } else if (email === "usuario@tienda.com" && password === "userpass") {
+        usuario = crearUsuario(email, password, 'usuario');
     } else {
-        alert("Correo o contraseña incorrectos."); // Mensaje actualizado
+        alert("Correo o contraseña incorrectos.");
+        return;
     }
+
+    usuario.isAuthenticated = true;
+    sessionStorage.setItem('usuario', JSON.stringify(usuario));
+    alert("Inicio de sesión exitoso");
+    window.location.href = 'index.html';
 }
+
 

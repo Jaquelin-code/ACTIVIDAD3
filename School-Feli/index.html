@@ -78,5 +78,33 @@
             });
         });
         </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const usuario = JSON.parse(sessionStorage.getItem('usuario'));
+        const loginButton = document.getElementById('loginButton');
+        const adminLink = document.createElement('a');
+
+        if (usuario && usuario.isAuthenticated) {
+            loginButton.textContent = "Cerrar Sesión";
+            loginButton.onclick = () => {
+                sessionStorage.removeItem('usuario');
+                alert("Has cerrado sesión.");
+                window.location.reload();
+            };
+
+            if (usuario.role === 'administrador') {
+                adminLink.href = "productos.html";
+                adminLink.textContent = "Gestionar Stock";
+                document.querySelector('nav').appendChild(adminLink);
+            }
+        } else {
+            loginButton.onclick = () => {
+                window.location.href = 'IniciarSesion.html';
+            };
+        }
+    });
+</script>
+
 </body>
 </html>

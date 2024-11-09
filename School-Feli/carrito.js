@@ -46,4 +46,6 @@ function enviarPedido() {
 }
 
 
+
+
 window.onload = cargarCarrito;
