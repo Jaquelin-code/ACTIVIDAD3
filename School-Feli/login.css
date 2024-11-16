@@ -1,77 +1,115 @@
 /* Estilos generales */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f4f4f4; /* Fondo gris claro */
     margin: 0;
     padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
 }
 
-/* Estilo del encabezado */
-header {
-    background-color: #ffd1dc; /* Color de fondo del encabezado */
-    color: black;
-    text-align: center;
-    padding: 20px 0;
-}
-
-/* Estilos del formulario de inicio de sesión */
+/* Estilo del contenedor del formulario */
 .login-form {
-    width: 300px; /* Ancho del formulario */
-    margin: 50px auto; /* Centrado horizontal */
+    width: 100%;
+    max-width: 360px; /* Ancho máximo del formulario */
     padding: 20px; /* Espaciado interno */
-    background-color: white; /* Fondo blanco para el formulario */
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Estilo del encabezado del formulario */
+header {
+    background-color: #ffd1dc; /* Fondo rosa claro */
+    text-align: center;
+    padding: 15px 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 10px 10px 0 0; /* Bordes redondeados superiores */
+    color: black;
 }
 
 /* Estilos para los elementos del formulario */
 label {
-    display: block; /* Cada etiqueta ocupa su propia línea */
-    margin-bottom: 5px; /* Espaciado debajo de cada etiqueta */
-    font-weight: bold; /* Negrita para etiquetas */
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
 }
 
 input[type="email"],
-input[type="password"], 
+input[type="password"],
 input[type="text"] {
-    width: 60%; 
-    padding: 10px; 
-    margin-bottom: 20px; 
-    border: 1px solid #ccc;
-    border-radius: 5px; 
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-   
-
+    width: 100%; /* Ancho completo */
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd; /* Borde gris claro */
+    border-radius: 5px; /* Bordes redondeados */
+    box-sizing: border-box; /* Incluye padding y borde en el tamaño */
+    font-size: 14px;
 }
 
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="text"]:focus {
+    border-color: #ff6f91; /* Borde rosa al enfocar */
+    outline: none; /* Elimina el contorno por defecto */
+    box-shadow: 0 0 5px rgba(255, 111, 145, 0.5); /* Sombra rosa */
+}
+
+/* Estilo para el contenedor de CAPTCHA */
+#captcha-container {
+    padding: 15px;
+    background-color: #f9f9f9; /* Fondo gris claro */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+#captcha-question {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+/* Estilo del botón */
 button {
-    padding: 10px 20px; 
-    background-color: #ff6f91; 
-    color: white; 
-    border: none; 
-    border-radius: 5px; 
-    cursor: pointer; 
-    margin-top: 20px; 
-    display: block; 
-    width: 80%; 
-    max-width: 300px; 
-    margin-left: auto; 
-    margin-right: auto; 
+    display: block;
+    width: 100%; /* Ancho completo */
+    padding: 12px;
+    background-color: #ff6f91; /* Fondo rosa brillante */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transición suave */
 }
 
 button:hover {
-    background-color: #d15b77; /* Color al pasar el mouse */
+    background-color: #d15b77; /* Rosa oscuro al pasar el mouse */
 }
 
-/* Estilo del pie de página */
+/* Estilo del enlace de restablecimiento de contraseña */
+.forgot-password {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #ff6f91; /* Texto rosa */
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.forgot-password:hover {
+    text-decoration: underline; /* Subrayado al pasar el mouse */
+}
+
+/* Pie de página */
 footer {
-    text-align: center; /* Centrar el texto */
-    padding: 20px 0; /* Espaciado interno */
-    background-color: #b3d9ff;
-    color: black; /* Color del texto */
-    position: absolute; /* Posicionamiento absoluto */
-    width: 100%; /* Ancho completo */
-    bottom: 0; /* Colocar en la parte inferior */
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-top: 20px;
 }
